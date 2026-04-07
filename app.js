@@ -1001,6 +1001,25 @@ function copyEmbedCode() {
   }
 }
 
+// ----------------------------------------------------- guide modal ------
+
+function openGuide() {
+  document.querySelector(".guide-modal").classList.add("open");
+  document.querySelector(".modal-backdrop").classList.add("open");
+  localStorage.setItem("gpcr-guide-seen", "1");
+}
+
+function closeGuide() {
+  document.querySelector(".guide-modal").classList.remove("open");
+  document.querySelector(".modal-backdrop").classList.remove("open");
+}
+
+function maybeShowGuideOnFirstVisit() {
+  if (!localStorage.getItem("gpcr-guide-seen")) {
+    openGuide();
+  }
+}
+
 function toggleLabelMode() {
   state.labelMode = !state.labelMode;
   const btn = document.getElementById("toggle-label");
@@ -1074,7 +1093,19 @@ function init() {
   const modal = document.querySelector(".export-modal");
   modal.querySelector(".close").addEventListener("click", closeEmbedModal);
   modal.querySelector(".copy").addEventListener("click", copyEmbedCode);
-  document.querySelector(".modal-backdrop").addEventListener("click", closeEmbedModal);
+
+  // Guide modal wiring.
+  document.getElementById("open-guide").addEventListener("click", openGuide);
+  document.querySelector(".guide-modal .close").addEventListener("click", closeGuide);
+
+  // Shared backdrop closes whichever modal is open.
+  document.querySelector(".modal-backdrop").addEventListener("click", () => {
+    closeEmbedModal();
+    closeGuide();
+  });
+
+  // Auto-open the guide the first time the page loads.
+  maybeShowGuideOnFirstVisit();
 }
 
 if (document.readyState === "loading") {

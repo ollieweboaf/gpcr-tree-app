@@ -15,6 +15,7 @@
 
   <div class="hud">
     <span class="pill">GPCR&nbsp;TREE</span>
+    <button id="open-guide" title="How to use this tool">Guide</button>
     <button id="toggle-label" title="Toggle labeler mode">Label tips</button>
     <button id="toggle-settings" title="Customize colors">Colors</button>
     <button id="open-embed" title="Export Webflow embed">Embed</button>
@@ -465,6 +466,44 @@
     <div class="row">
       <button class="close">Close</button>
       <button class="copy primary">Copy to clipboard</button>
+    </div>
+  </div>
+
+  <!-- Guide / instructions modal -->
+  <div class="guide-modal" role="dialog" aria-modal="true">
+    <h2>How to use this tool</h2>
+    <p>Five steps to a finished, embeddable GPCR tree animation.</p>
+    <ol class="steps">
+      <li>
+        <strong>Scroll to preview.</strong>
+        Scroll down the page to watch the tree grow from its centre. Keep
+        scrolling and the named tip highlights appear at the end.
+      </li>
+      <li>
+        <strong>Label your tips.</strong>
+        Click <em>Label tips</em> in the top-left, then click any branch tip
+        and type the GPCR name (e.g. <code>ADRB1</code>). Click an existing
+        tip to edit, recolour, or delete it.
+      </li>
+      <li>
+        <strong>Pick your colours.</strong>
+        Click <em>Colors</em> to change the tree, tip points, label text, and
+        background. Changes are saved automatically as you adjust them.
+      </li>
+      <li>
+        <strong>Generate the embed.</strong>
+        Click <em>Embed</em> when you're happy. A self-contained HTML snippet
+        appears &mdash; hit <em>Copy to clipboard</em>.
+      </li>
+      <li>
+        <strong>Paste into Webflow.</strong>
+        Add a Webflow <em>Embed</em> element where you want the animation to
+        appear, paste the snippet, save, and publish. The tree will animate
+        as visitors scroll the page.
+      </li>
+    </ol>
+    <div class="row">
+      <button class="close primary">Got it</button>
     </div>
   </div>
 

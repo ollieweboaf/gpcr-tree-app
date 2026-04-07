@@ -441,3 +441,115 @@ html, body {
 .modal-backdrop.open {
   display: block;
 }
+
+/* Guide / instructions modal */
+.guide-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg-2);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 24px 28px;
+  border-radius: 12px;
+  z-index: 40;
+  display: none;
+  width: min(560px, 92vw);
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+}
+.guide-modal.open {
+  display: block;
+}
+.guide-modal h2 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 600;
+}
+.guide-modal p {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: var(--ink-dim);
+  line-height: 1.5;
+}
+.guide-modal .steps {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.guide-modal .steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 12px 0 12px 44px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.55;
+}
+.guide-modal .steps li:first-child {
+  border-top: none;
+}
+.guide-modal .steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "SF Mono", "Menlo", monospace;
+}
+.guide-modal .steps strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--ink);
+  font-weight: 600;
+}
+.guide-modal .steps em {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 600;
+}
+.guide-modal .steps code {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: "SF Mono", "Menlo", monospace;
+  font-size: 11px;
+  color: var(--ink);
+}
+.guide-modal .row {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.guide-modal button {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--ink);
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+}
+.guide-modal button.primary {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+.guide-modal button.primary:hover {
+  filter: brightness(1.1);
+}
