@@ -1006,18 +1006,11 @@ function copyEmbedCode() {
 function openGuide() {
   document.querySelector(".guide-modal").classList.add("open");
   document.querySelector(".modal-backdrop").classList.add("open");
-  localStorage.setItem("gpcr-guide-seen", "1");
 }
 
 function closeGuide() {
   document.querySelector(".guide-modal").classList.remove("open");
   document.querySelector(".modal-backdrop").classList.remove("open");
-}
-
-function maybeShowGuideOnFirstVisit() {
-  if (!localStorage.getItem("gpcr-guide-seen")) {
-    openGuide();
-  }
 }
 
 function toggleLabelMode() {
@@ -1103,9 +1096,6 @@ function init() {
     closeEmbedModal();
     closeGuide();
   });
-
-  // Auto-open the guide the first time the page loads.
-  maybeShowGuideOnFirstVisit();
 }
 
 if (document.readyState === "loading") {
